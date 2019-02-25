@@ -1,0 +1,76 @@
+public class Main {
+
+    public static void main(String[] args) {
+        long result = 0;
+        int k = 4; // задаєм кількість тредів
+        long avaragetime = 0;
+
+        Formula formula = new Formula("formula ", 1000000000, 0, 0);
+        formula.formula();
+        Circle circle = new Circle("cycle ", 1000000000, 0, 0);
+        circle.cycle();
+
+        for (long j = 1; j <= k; j++) {
+            long m = j - 1;
+            Runnable r = new Progress_Treds("#" + j, j * 1000000000 / k, m * 1000000000 / k + 1, 0, 0);
+            Thread thread = new Thread(r);
+            thread.start();
+            try {
+                thread.join();
+                result += ((Progress_Treds) r).S2;
+                avaragetime += ((Progress_Treds) r).time;
+
+                System.out.println("result: " + result);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(" avarage time: " + avaragetime / k + " ms");
+    }}
+    
+public class Progress_Treds implements Runnable {
+    String name;
+    long time;
+    Progress_Treds(String name, long N, long i, long S2, long time) {
+        this.name = name;
+        this.N=N;
+        this.i=i;
+        this.S2=S2;
+        this.time=time;
+    }
+
+    static   long n =11; //перший член прогресії
+    long N; //кількість всіх доданків, N*n енний доданок
+    long S2; //сума
+    private long i;
+
+    public void cycle(){
+        long t1 = System.currentTimeMillis();
+        for (; i<=N; i++){
+            S2+=n*i;
+        }
+               long t2 = System.currentTimeMillis();
+        time = (t2 - t1);
+        System.out.println(name+ " " +"suma:  "+S2+ " - duration: " + time + " ms");
+    }
+
+    @Override
+    public void run() {
+    cycle();}
+    }
+    
+public class Formula extends Progress_Treds{
+    public Formula(String name, long N, long i, long S2) {
+        super(name, N, i, S2,0);
+    }
+    public void formula() {
+        S2 = ((n + N * n) / 2) * N;
+        System.out.println(name + " " + "suma:  " + S2 );
+    }
+    
+ public class Circle extends Progress_Treds {
+
+    public Circle(String name, long N, long i, long S2) {
+        super(name, N, i, S2, 0);
+    }
+}
