@@ -22,6 +22,11 @@ public class servleton extends HttpServlet {
             double b = Double.parseDouble(bParam);
             double c = Double.parseDouble(cParam);
             double d = Double.parseDouble(dParam);
+            
+            if(a == 0 | b == 0 | c == 0 | d == 0){
+                response.sendError(400, "Param can`t == 0 exception" );
+            }
+            
             double y = pow((4*cosh(sqrt(abs(a/b)))+3*acos(d)), c);
 
             printWriter.println("<!DOCTYPE html>");
