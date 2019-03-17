@@ -33,6 +33,9 @@ public class calculating extends HttpServlet {
             else if (d1 == 0){
                 resp.sendError(400, "d != 0 exception");
             }
+            else if (a1 == 0){
+                resp.sendError(400, "a != 0 exception");
+            }
 
 
             double result = (Math.pow(a1, b1)/Math.sinh(Math.abs(b1))) + 4* (Math.log10(c1)/ Math.pow(d1,(1.0/4)));
