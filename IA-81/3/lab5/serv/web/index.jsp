@@ -20,16 +20,16 @@
 <h2>y = pow((4*ch(sqrt(abs(a/b))+3*arccos(d), c) </h2>
 <form action="/servlet" method="get">
   <label>Input a:</label>
-  <input type="text" name="a" />
+  <input type="text" name="a" required/>
   <br/>
   <label>Input b:</label>
-  <input type="text" name="b" />
+  <input type="text" name="b" required/>
   <br/>
   <label>Input c:</label>
-  <input type="text" name="c" />
+  <input type="text" name="c" required/>
   <br/>
   <label>Input d:</label>
-  <input type="text" name="d" />
+  <input type="text" name="d" required/>
   <br/>
   <input type="submit" value="Сalculate" />
 </form>
