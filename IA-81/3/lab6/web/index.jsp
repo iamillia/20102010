@@ -82,22 +82,6 @@
     response.addCookie(d1);
     response.addCookie(d2);
     response.addCookie(d3);
-
-//    a1 = cookies[0];
-//    a2 = cookies[1];
-//    a3 = cookies[2];
-//
-//    b1 = cookies[3];
-//    b2 = cookies[4];
-//    b3 = cookies[5];
-//
-//    c1 = cookies[6];
-//    c2 = cookies[7];
-//    c3 = cookies[8];
-//
-//    d1 = cookies[9];
-//    d2 = cookies[10];
-//    d3 = cookies[11];
 %>
 
 <html>
@@ -115,38 +99,38 @@
 <form action="index.jsp" method="get">
     <div>
         a start:
-        <input type="text" name="aStart" value="<%=aStart%>"/>
+        <input type="number" name="aStart" value="<%=aStart%>"/>
         end:
-        <input type="text" name="aEnd" value="<%=aEnd%>"/>
+        <input type="number" name="aEnd" value="<%=aEnd%>"/>
         step:
-        <input type="text" name="aStep" value="<%=aStep%>"/>
+        <input type="number" name="aStep" value="<%=aStep%>"/>
     </div>
     <br>
     <div>
         b start:
-        <input type="text" name="bStart" value="<%=bStart%>"/>
+        <input type="number" name="bStart" value="<%=bStart%>"/>
         end:
-        <input type="text" name="bEnd" value="<%=bEnd%>"/>
+        <input type="number" name="bEnd" value="<%=bEnd%>"/>
         step:
-        <input type="text" name="bStep" value="<%=bStep%>"/>
+        <input type="number" name="bStep" value="<%=bStep%>"/>
     </div>
     <br>
     <div>
         c start:
-        <input type="text" name="cStart" value="<%=cStart%>"/>
+        <input type="number" name="cStart" value="<%=cStart%>"/>
         end:
-        <input type="text" name="cEnd" value="<%=cEnd%>"/>
+        <input type="number" name="cEnd" value="<%=cEnd%>"/>
         step:
-        <input type="text" name="cStep" value="<%=cStep%>"/>
+        <input type="number" name="cStep" value="<%=cStep%>"/>
     </div>
     <br>
     <div>
     d start:
-    <input type="text" name="dStart" value="<%=dStart%>"/>
+    <input type="number" name="dStart" value="<%=dStart%>"/>
     end:
-    <input type="text" name="dEnd" value="<%=dEnd%>"/>
+    <input type="number" name="dEnd" value="<%=dEnd%>"/>
     step:
-    <input type="text" name="dStep" value="<%=dStep%>"/>
+    <input type="number" name="dStep" value="<%=dStep%>"/>
 </div>
     <br>
   <input type="submit" value="Calculate" />
