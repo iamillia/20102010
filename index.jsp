@@ -37,51 +37,29 @@
   %>
   <%
     String a_tmp, b_tmp, c_tmp, d_tmp;
-    if (request.getParameter("a") == null && session.getAttribute("a") != null) {
-      a_tmp = session.getAttribute("a").toString();
-    } else {
+
       a_tmp = request.getParameter("a");
-    }
-    if (request.getParameter("b") == null && session.getAttribute("b") != null) {
-      b_tmp = session.getAttribute("b").toString();
-    } else {
       b_tmp = request.getParameter("b");
-    }
-    if (request.getParameter("c") == null && session.getAttribute("c") != null) {
-      c_tmp = session.getAttribute("c").toString();
-    } else {
       c_tmp = request.getParameter("c");
-    }
-    if (request.getParameter("d") == null && session.getAttribute("d") != null) {
-      d_tmp = session.getAttribute("d").toString();
-    } else {
       d_tmp = request.getParameter("d");
-    }
     //
     if (a_tmp != null) {
       if (isNum(a_tmp)) { a = Double.parseDouble(a_tmp);} else {response.sendError(422);}
-    } else { a = 1; }
+    } else { a = 0; }
     a_list.add(a);
     if (b_tmp != null) {
       if (isNum(b_tmp)) { b = Double.parseDouble(b_tmp);} else {response.sendError(422);}
-    } else { b = 1; }
+    } else { b = 0; }
     b_list.add(b);
     if (c_tmp != null) {
       if (isNum(c_tmp)) { c = Double.parseDouble(c_tmp);} else {response.sendError(422);}
-    } else { c = 1; }
+    } else { c = 0; }
     c_list.add(c);
     if (d_tmp != null) {
       if (isNum(d_tmp)) { d = Double.parseDouble(d_tmp);} else {response.sendError(422);}
-    } else { d = 1; }
+    } else { d = 0; }
     d_list.add(d);
     result_list.add(getResult(a,b,c,d));
-    //
-    if(!session.isNew()) {
-      session.setAttribute("a", a);
-      session.setAttribute("b", b);
-      session.setAttribute("c", c);
-      session.setAttribute("d", d);
-    }
   %>
   <p><img src="pictures/mathform.png" alt="Математическая формула"></p>
   <form action="index.jsp" method="get">
