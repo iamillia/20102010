@@ -4,67 +4,142 @@
 
 <html>
 <head>
-  <title>$Title$</title>
+    <title>Calculate</title>
 </head>
 <body>
 <hr>
-<img src="formula.jpg" height="100" width="170">
+<img src="formula.jpg" height="120" width="196">
 <hr>
 <%!
-  String a = "0";
-  String b = "0";
-  String c = "0";
-  String d = "0";
+    String fromA;
+    String fromB;
+    String fromC;
+    String fromD;
+    String toA;
+    String toB;
+    String toC;
+    String toD;
+    String stepA;
+    String stepB;
+    String stepC;
+    String stepD;
 
 %>
-<form method ="post" action="index.jsp">
-  Enter a : <input type="text" name="a" value=<%=a%>><br/><br/>
-  Enter b : <input type="text" name ="b"  value=<%=b%>><br/><br/>
-  Enter c : <input type="text" name ="c" value=<%=c%>><br/><br/>
-  Enter d : <input type="text" name ="d" value=<%=d%>><br/><br/>
-  <%
-    a = request.getParameter("a");
-    b = request.getParameter("b");
-    c = request.getParameter("c");
-    d = request.getParameter("d");
-  %>
-  <input type ="submit" value="calculate">
+
+<%
+    fromA = request.getParameter("fromA");
+    fromB = request.getParameter("fromB");
+    fromC = request.getParameter("fromC");
+    fromD = request.getParameter("fromD");
+    toA = request.getParameter("toA");
+    toB = request.getParameter("toB");
+    toC = request.getParameter("toC");
+    toD = request.getParameter("toD");
+    stepA = request.getParameter("stepA");
+    stepB = request.getParameter("stepB");
+    stepC = request.getParameter("stepC");
+    stepD = request.getParameter("stepD");
+
+
+
+%>
+
+<%
+    if(fromA==null){
+        fromA="3";
+    };
+    if(fromB==null){
+        fromB="3";
+    };
+    if(fromC==null){
+        fromC="3";
+    };
+    if(fromD==null){
+        fromD="3";
+    };
+    if(toA==null){
+        toA="6";
+    };
+    if(toB==null){
+        toB="6";
+    };
+    if(toC==null){
+        toC="6";
+    };
+    if(toD==null){
+        toD="6";
+    };
+    if(stepA==null){
+        stepA="1";
+    };
+    if(stepB==null){
+        stepB="1";
+    };
+    if(stepC==null){
+        stepC="1";
+    };
+    if(stepD==null){
+        stepD="1";
+    };
+    if(Integer.parseInt(fromA) <=0){
+        response.sendError(422, "a< 0 exception" );
+    }
+    else if (Integer.parseInt(fromC)<=0){
+        response.sendError(422,"с < 0 exception");
+    }
+%>
+<form method="get" action="index.jsp">
+    Enter a : <input type="text" name="fromA" value=<%=fromA%>> <input type="text" name="toA" value=<%=toA%>> <input
+        type="text" name="stepA" value=<%=stepA%>> <br/><br/>
+    Enter b : <input type="text" name="fromB" value=<%=fromB%>> <input type="text" name="toB" value=<%=toB%>> <input
+        type="text" name="stepB" value=<%=stepB%>><br/><br/>
+    Enter c : <input type="text" name="fromC" value=<%=fromC%>> <input type="text" name="toC" value=<%=toC%>> <input
+        type="text" name="stepC" value=<%=stepC%>><br/><br/>
+    Enter d : <input type="text" name="fromD" value=<%=fromD%>> <input type="text" name="toD" value=<%=toD%>> <input
+        type="text" name="stepD" value=<%=stepD%>><br/><br/>
+
+
+    <input type="submit" value="calculate">
 
 </form>
 <hr>
 <form>
-  <table border="1" width="10%" cellpadding="5">
-    <tr>
-      <th>a</th>
-      <th>b</th>
-      <th>c</th>
-      <th>d</th>
-      <th>rezult</th>
-    </tr>
-    <tr>
-      <td> <% out.print(a); %></td>
-      <td> <% out.print(b); %></td>
-      <td> <% out.print(c); %></td>
-      <td> <% out.print(d); %></td>
-      <td> <%
-        double e = 2.71828182846;
-        try {
-          out.print(cos(Integer.parseInt(b)) + sin(sqrt(Integer.parseInt(a))) / (2 * log10(Integer.parseInt(c) + pow(e, Integer.parseInt(d)))));
-        }catch (Exception f){
-          out.println("write another number");
+    <table border="1" width="10%" cellpadding="5">
+        <tr>
+            <th>a</th>
+            <th>b</th>
+            <th>c</th>
+            <th>d</th>
+            <th>rezult</th>
+        </tr>
+        <tr>
+            <%  for (int a = Integer.parseInt(fromA); a <= Integer.parseInt(toA); a = a + Integer.parseInt(stepA)) {
+                 for (int b = Integer.parseInt(fromB); b <= Integer.parseInt(toB); b = b + Integer.parseInt(stepB)) {
+                    for (int c = Integer.parseInt(fromC); c <= Integer.parseInt(toC); c = c + Integer.parseInt(stepC)) {
+                         for (int d = Integer.parseInt(fromD); d <= Integer.parseInt(toD); d = d + Integer.parseInt(stepD)) { %>
+            <td><% out.print(a); %></td>
+            <td><% out.print(b); %></td>
+            <td><% out.print(c); %></td>
+            <td><% out.print(d); %></td>
+            <td><%
+                double e = 2.71828182846;
+                try {
+                    out.print(cos(b) + sin(sqrt(a)) / (2 * log10(c + pow(e, d))));
+                } catch (Exception f) {
+                    out.println("write another number");
+                }
+            %></td>
+
+        </tr>
+        <% }
         }
+        }
+        } %>
 
-      %></td>
-
-    </tr>
-
-  </table>
+    </table>
 
 
 </form>
-
-
-
 
 
 </body>
