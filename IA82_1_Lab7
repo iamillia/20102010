@@ -1,0 +1,292 @@
+index.jsp
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>toyshop</title>
+         <style>
+            body{
+                background: url(fon1.jpg);
+            }
+            .s{
+                font-size: 20px;
+                font-style: italic;
+                background: powderblue;
+                color:pink;
+            }
+            h1{
+                font-style: italic;
+                font-size: 50px;
+                color: pink;
+
+             }
+            p{
+                font-style: italic;
+                font-size:30px;
+                font-weight: bold;
+                color:pink;
+            }
+            h3{
+                font-style: italic;
+                font-size: 30px;
+                font-weight: bold;
+                color: pink;
+            }
+
+         </style>
+    </head>
+    <body>
+        <h1 align="center"> ToyShop</h1>
+        <form method="get" action="Controller">
+            <p>Item : <input  name="Item" type="text" value="" />
+                <input type="submit" name="enter" value="Find Price  " class="s" />
+            </p>
+            <h3>Available goods</h3>
+    <p><select name="select" size="8" multiple>
+        <option selected value="s1">ball</option>
+        <option value="s2">cat</option>
+        <option value="s3">doll</option>
+        <option value="s4">flowers</option>
+        <option value="s5">bike</option>
+        <option value="s6">backpack</option>
+        <option value="s7">notebook</option>
+        <option value="s8">pen</option>
+   </select>
+            </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+ View.jsp
+
+
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>View</title>
+         <style>
+            body{
+                background: url(fon2.jpg);
+            }
+            p{
+              font-style: italic;
+                font-size:30px;
+                font-weight: bold;
+                color:pink;     
+            }
+            .s{
+                font-size: 20px;
+                font-style: italic;
+                background: powderblue;
+                color:pink;
+                font-weight: bold;
+                 padding: 5px 10px;
+            }
+        </style>
+    </head>
+    <body>
+         <form method="get"  action="index.jsp">
+                <input type="submit" name="enter" value="&#8592;" class="s" />
+            </form>   
+    <center>
+        <p align="right"> The lowest price for this product:<c:out value="${item}" default="Error"/></p>
+        <p align="right"> List of stores(product at the lowest price: <br><c:forEach var="i" items="${requestScope.list}">
+                ${i}</br>
+            </c:forEach>
+            </p>
+    </center>   
+    </body>
+</html>
+
+
+ Item.java
+
+
+     private String name;
+    private double price;
+
+     public Item() {
+    }
+     public Item(String name, double price) {
+         this.name=name;
+         this.price=price;
+    }
+
+     public String getName() {
+        return name;
+    }
+
+     public double getPrice() {
+        return price;
+    }
+
+     public void setName(String name) {
+        this.name = name;
+    }
+
+     public void setPrice(double price) {
+        this.price = price;
+    }
+
+ }
+
+ Service.java
+
+ import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+
+ public class Service {
+    static ArrayList<Store> storeArrayList = new ArrayList<Store>();
+    static Item item;
+    static ArrayList<String> storeWithMinPrice = new ArrayList<String>();
+    public static void main(String[] args) {
+        addInfoStore();
+        System.out.println(findMinPrice("cat"));
+        storeWithMinPrice = (ArrayList<String>) storeWithMinPrice.stream().distinct().collect(Collectors.toList());
+        for (String nameStore: storeWithMinPrice) {
+            System.out.print(nameStore + " ");
+        }
+
+     }
+
+     static void addInfoStore(){
+        Store store = new Store("Rozetka");
+        store.addItem(new Item("ball",1.99));
+        store.addItem(new Item("cat",39.99));
+         store.addItem(new Item("bike",700.95));
+          store.addItem(new Item("flowers",56.99));
+           store.addItem(new Item("pen",3.78));
+        store.addItem(new Item("notebook",0.99));
+         store.addItem(new Item("backpack",200.0));
+        storeArrayList.add(store);
+
+         store = null;
+        store = new Store("ZARA");
+        store.addItem(new Item("ball",1.99));
+        store.addItem(new Item("ball",3.99));
+        store.addItem(new Item("cat",29.99));
+         store.addItem(new Item("flowers",39.99));
+          store.addItem(new Item("bike",39.99));
+           store.addItem(new Item("pen",3.78));
+             store.addItem(new Item("doll",560.98));
+        storeArrayList.add(store);
+    }
+    static double findMinPrice(String name){
+        double minPrice = 9999999;
+        double curPriceOfStore = 0;
+        boolean isFindMinPrice = false;
+        for (Store store:storeArrayList) {
+            curPriceOfStore = store.getMinPriceByItem(name);
+            if(curPriceOfStore > 0)
+                isFindMinPrice = true;
+            if(curPriceOfStore < minPrice){
+                storeWithMinPrice = new ArrayList<String>();
+                storeWithMinPrice.add(store.getName());
+                minPrice = curPriceOfStore;
+            }
+            if(curPriceOfStore == minPrice){
+                storeWithMinPrice.add(store.getName());
+            }
+        }
+        if(!isFindMinPrice)
+            return -1;
+      return minPrice;
+
+     }
+}
+
+ Store.java
+
+ import java.util.ArrayList;
+
+
+ public class Store {
+    String name;
+    ArrayList<Item> itemArrayListe = new ArrayList<Item>();
+
+     public Store(String name) {
+        this.name = name;
+    }
+
+     public double getMinPriceByItem(String name){
+
+         double minPrice = 99999999;
+        boolean isFindItem = false;
+        for(Item item:itemArrayListe){
+           if(item.getName() == null ? name == null : item.getName().equals(name)){
+              isFindItem = true;
+              if(item.getPrice()<minPrice){
+                     minPrice= item.getPrice();
+            }
+        }
+    }
+        return minPrice;
+    }
+
+     public String getName(){
+    return name;
+    }
+
+     void addItem(Item item) {
+        this.itemArrayListe.add(item);
+    }
+ }
+
+ Controller.java
+
+
+ import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+ @WebServlet(urlPatterns = {"/Controller"})
+
+ public class Controller extends HttpServlet{
+
+     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        response.setContentType("text/html;charset = UTF-8");
+                try(PrintWriter out = response.getWriter()){
+
+                      String item = request.getParameter("Item");
+         Service.addInfoStore();
+         double price = Service.findMinPrice(item);
+         ArrayList<String> minPriceList =Service.storeWithMinPrice;
+         request.setAttribute("item", price);
+         request.setAttribute("list", minPriceList);
+         request.getRequestDispatcher("View.jsp").forward(request, response);
+
+
+                 out.println("<DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet Controller</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>" + price + "</h1>");
+                out.println("</body>");
+                out.println("</html>");
+
+             }
+        }   
+    }
