@@ -18,7 +18,7 @@ public class MyServlet extends HttpServlet {
             double b = Double.parseDouble(bParam);
             double c = Double.parseDouble(cParam);
             if(c<0){
-                response.sendError(400,"param c cant be less then 0");
+                response.sendError(406,"param c cant be less then 0");
             }
             double d = Double.parseDouble(dParam);
             HttpSession session = request.getSession();
