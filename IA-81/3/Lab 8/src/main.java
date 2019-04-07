@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.TreeSet;
 
 public class main {
     public static void main(String[] args) {
@@ -6,14 +7,14 @@ public class main {
         //public Krapli(Integer code, String name, int price, int nubmerOf, String type, String bottleMaterial)
         //public Krapli(Integer code, String name, int price, int nubmerOf)
 
-        Krapli k1 = new Krapli(1,"Nazalong",245,900);
-        Krapli k2 = new Krapli(2,"Evkazolin",250,450);
-        Krapli k3 = new Krapli(3,"Arestin",95,50, "pshykavka","Glass");
-        Krapli k4 = new Krapli(4,"Hiter",200,500, "kapalnica", "Plastic");
-        Krapli k5 = new Krapli(5,"Talin",568,78);
-        Krapli k6 = new Krapli(6,"Sulini",698,45);
-        Krapli k7 = new Krapli(7,"Eriya",641,46, "pshykavka","Glass");
-        Krapli k8 = new Krapli(8,"Mekrel",981,52, "kapalnica", "Plastic");
+        Krapli k1 = new Krapli(1,"Nazalong",245,900, 98, "Glass");
+        Krapli k2 = new Krapli(2,"Evkazolin",250,450, 32);
+        Krapli k3 = new Krapli(3,"Arestin",95,50, 78,"Glass");
+        Krapli k4 = new Krapli(4,"Hiter",200,500, 45, "Plastic");
+        Krapli k5 = new Krapli(5,"Talin",568,78, 86);
+        Krapli k6 = new Krapli(6,"Sulini",698,45, 687);
+        Krapli k7 = new Krapli(7,"Eriya",641,46, 54,"Glass");
+        Krapli k8 = new Krapli(8,"Mekrel",981,52, 795, "Plastic");
 
 
         Krapli[] kraplis = {k1, k2, k3, k4, k5, k6, k7, k8};
@@ -52,12 +53,24 @@ public class main {
 
         System.out.println("----****----");
 
-        Arrays.sort(tabletki, new Heals.HealsComparator());
+        Arrays.sort(tabletki, new Tablets.TabletsNumberOfComparator());
 
         for(Tablets t : tabletki){
             System.out.println(t);
         }
 
         System.out.println("----****----");
+
+        TreeSet<Tablets> tabs = new TreeSet(new Tablets.TabletsNumberOfComparator());
+        tabs.add(t1);
+        tabs.add(t2);
+        tabs.add(t3);
+        tabs.add(t4);
+        tabs.add(t5);
+        tabs.add(t6);
+        tabs.add(t7);
+        tabs.add(t8);
+
+        System.out.println(tabs);
     }
 }
