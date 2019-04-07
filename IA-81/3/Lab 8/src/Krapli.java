@@ -2,35 +2,44 @@ import java.util.Comparator;
 import java.util.Objects;
 
 public class Krapli extends Heals {
-    String type;
+    Integer daysToEnd;
     String bottleMaterial;
 
-    public Krapli(Integer code, String name, int price, int nubmerOf, String type, String bottleMaterial) {
+    public Krapli(Integer code, String name, int price, int nubmerOf, Integer daysToEnd, String bottleMaterial) {
         super(code, name, price, nubmerOf);
-        this.type = type;
+        this.daysToEnd = daysToEnd;
         this.bottleMaterial = bottleMaterial;
+    }
+
+
+    public Krapli(Integer code, String name, int price, int nubmerOf, Integer daysToEnd) {
+        super(code, name, price, nubmerOf);
+        this.daysToEnd = daysToEnd;
     }
 
     public Krapli(Integer code, String name, int price, int nubmerOf) {
         super(code, name, price, nubmerOf);
     }
 
-    public String getType() { return type;  }
-
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (this == o) return true;
+        if (!(o instanceof Krapli)) return false;
+        if (!super.equals(o)) return false;
+        Krapli krapli = (Krapli) o;
+        return daysToEnd.equals(krapli.daysToEnd);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getType(), bottleMaterial);
+        return Objects.hash(super.hashCode(), daysToEnd);
     }
+    
 
     @Override
     public String toString() {
         return "Krapli{" +
-                "type='" + type + '\'' +
+                "type='" + daysToEnd + '\'' +
                 ", bottleMaterial='" + bottleMaterial + '\'' +
                 ", code=" + code +
                 ", name='" + name + '\'' +
