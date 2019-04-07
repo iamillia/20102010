@@ -32,12 +32,10 @@ public abstract class Heals {
 
     @Override
     public String toString() {
-        return "Heals{" +
-                "code=" + code +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", nubmerOf=" + nubmerOf +
-                '}';
+        return "Heals:" + "code = " + code +
+                " name = " + name + '\'' +
+                " price = " + price +
+                " nubmerOf = " + nubmerOf+ '\'';
     }
 
     static class HealsComparator implements Comparator<Heals> {
