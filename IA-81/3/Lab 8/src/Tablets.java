@@ -23,9 +23,14 @@ public class Tablets extends Heals {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Tablets)) return false;
+        if (!super.equals(o)) return false;
         Tablets tablets = (Tablets) o;
-        return Objects.equals(getForm(), tablets.getForm()) &&
-                Objects.equals(typeOfContainer, tablets.typeOfContainer);
+        return getForm().equals(tablets.getForm());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getForm());
     }
 
     @Override
@@ -38,11 +43,6 @@ public class Tablets extends Heals {
                 ", price=" + price +
                 ", nubmerOf=" + nubmerOf +
                 '}';
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getForm(), typeOfContainer);
     }
 
     static class TabletsNumberOfComparator implements Comparator<Tablets>{
