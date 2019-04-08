@@ -24,11 +24,8 @@ public class Main {
         soundtrack track2 = new soundtrack(100, 2, "besttrack", "tracker", false, 100000000);
         soundtrack track3 = new soundtrack(10, 3, "besttrack", "tracker", false, 100000000);
         soundtrack track4 = new soundtrack(1, 4, "besttrack", "tracker", false, 100000000);
-        TreeSet<soundtrack> tracks = new TreeSet<soundtrack>();
-        tracks.add(track4);
-        tracks.add(track3);
-        tracks.add(track2);
-        tracks.add(track1);
+         soundtrack[] tracks = {track1, track2, track3, track4};
+        Arrays.sort(tracks, new soundtrack.SoundC());
         for (soundtrack s: tracks){
             System.out.println(s);
         }
