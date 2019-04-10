@@ -1,26 +1,24 @@
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Random;
 import java.util.TreeSet;
 
 public class Lab8dot1 {
 
-    public static void main(String[] args) {
-        Random r = new Random();
-        final int N = 10;
-        QuadraticEquation[] arr = new QuadraticEquation[N];
-        for(int i = 0; i < N; i++)
-            arr[i] = new QuadraticEquation(r.nextInt(21) - 10, r.nextInt(21) - 10, r.nextInt(21) - 10);
-        printSorted(arr);
+    class Compar implements Comparator<QuadraticEquation>{
+        Lab8dot1 out;
+
+        Compar(Lab8dot1 out){
+            this.out = out;
+        }
+
+        @Override
+        public int compare(QuadraticEquation o1, QuadraticEquation o2) {
+            return (o1.a < o2.a) ? -1 : ((o1.a == o2.a) ? 0 : 1);
+        }
     }
 
-    public static void printSorted(QuadraticEquation[] arr){
-        Comparator<QuadraticEquation> compar = new Comparator<QuadraticEquation>() {
-            @Override
-            public int compare(QuadraticEquation o1, QuadraticEquation o2) {
-                return (o1.a < o2.a) ? -1 : ((o1.a == o2.a) ? 0 : 1);
-            }
-        };
+    public void printSorted(QuadraticEquation[] arr){
+        Comparator<QuadraticEquation> compar = new Lab8dot1.Compar(this);
         compar = compar.thenComparing(obj -> obj.b);
         compar = compar.thenComparing(obj -> obj.c);
 
