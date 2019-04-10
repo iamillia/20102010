@@ -12,7 +12,7 @@ public class Lab8dot2 {
     }
 
     public void printSorted(QuadraticEquation[] arr){
-        Comparator compar = this.new Lab8dot2.Compar();
+        Comparator compar = this.new Compar();
         TreeSet<QuadraticEquation> asd = new TreeSet<>(compar);
         asd.addAll(Arrays.asList(arr));
         System.out.println(asd);
