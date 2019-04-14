@@ -3,7 +3,7 @@ import java.util.*;
 import static java.util.Comparator.*;
 
 /**
- * Types of constructors:
+ * Types of constructor:
  *  Krapli(Integer code, String name, int price, int nubmerOf, String type, String bottleMaterial)
  *  Krapli(Integer code, String name, int price, int nubmerOf)
  *
