@@ -23,7 +23,7 @@ public class Main {
             System.out.println(t);
         }
         System.out.println("TreeSet of Documents");
-        TreeSet<EDocument> treeDocs = new TreeSet<EDocument>(new EdocIdCompporator());
+        TreeSet<EDocument> treeDocs = new TreeSet<EDocument>(eDoc1.new EdocIdCompporator());
         treeDocs.add(eDoc2);
         treeDocs.add(eDoc1);
         System.out.println(treeDocs);
