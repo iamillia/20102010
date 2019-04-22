@@ -34,6 +34,12 @@ public class EDocument extends Document {
     public void setTypeOfContent(String typeOfContent) {
         this.typeOfContent = typeOfContent;
     }
+     class EdocIdCompporator implements Comparator<EDocument> {
+        @Override
+        public int compare(EDocument o1, EDocument o2) {
+            return Integer.compare(o1.getId(), o2.getId());
+        }
+    }
 
     @Override
     public String toString() {
@@ -45,10 +51,5 @@ public class EDocument extends Document {
                 ", docForm {"+this.docForm+"}";
     }
 }
-class EdocIdCompporator implements Comparator<EDocument> {
-    @Override
-    public int compare(EDocument o1, EDocument o2) {
-        return Integer.compare(o1.getId(), o2.getId());
-    }
-}
+
 
