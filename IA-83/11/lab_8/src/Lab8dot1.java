@@ -4,15 +4,15 @@ import java.util.TreeSet;
 
 public class Lab8dot1 {
 
-    class Compar implements Comparator<QuadraticEquation>{
-        Lab8dot1 out;
+    st  atic class Compar implements Comparator<QuadraticEquation>{
+        final Lab8dot1 out;
 
         Compar(Lab8dot1 out){
             this.out = out;
         }
 
         @Override
-        public int compare(QuadraticEquation o1, QuadraticEquation o2) {
+        public int compare(final QuadraticEquation o1, final QuadraticEquation o2) {
             return (o1.a < o2.a) ? -1 : ((o1.a == o2.a) ? 0 : 1);
         }
     }

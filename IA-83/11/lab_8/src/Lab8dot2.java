@@ -4,9 +4,9 @@ import java.util.TreeSet;
 
 public class Lab8dot2 {
 
-    class Compar implements Comparator<QuadraticEquation>{
+    protected class Compar implements Comparator<QuadraticEquation>{
         @Override
-        public int compare(QuadraticEquation o1, QuadraticEquation o2) {
+        public int compare(final QuadraticEquation o1, final QuadraticEquation o2) {
             return (o1.a < o2.a) ? -1 : (o1.a == o2.a) ? (o1.b < o2.b) ? -1 : (o1.b == o2.b) ? (o1.c < o2.c) ?  -1 : (o1.c == o2.c) ? 0 : 1 : 1 : 1;
         }
     }
