@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>googleservlet</servlet-name>
+        <servlet-class>googleservlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>googleservlet</servlet-name>
+        <url-pattern>/googleservlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>choseform</servlet-name>
+        <servlet-class>choseform</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>choseform</servlet-name>
+        <url-pattern>/choseform</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>choseformFor6Lab</servlet-name>
+        <servlet-class>choseformFor6Lab</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>choseformFor6Lab</servlet-name>
+        <url-pattern>/choseformFor6Lab</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Lab6</servlet-name>
+        <servlet-class>Lab6</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Lab6</servlet-name>
+        <url-pattern>/Lab6</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <max-age>172800</max-age>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+</web-app>
