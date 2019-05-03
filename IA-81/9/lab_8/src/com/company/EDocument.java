@@ -46,7 +46,7 @@ public class EDocument extends Document {
         return "TextDocument:"+
                 ", type Of Secrecy {'" +getTypeOfSecrecy()+"}"+
                 ", id= " +getId()+
-                "type of content {"+this.typeOfContent+"}"+
+                ", type of content {"+this.typeOfContent+"}"+
                 ", typeOfCarrier {"+this.typeOfCarrier+"}"+
                 ", docForm {"+this.docForm+"}";
     }
