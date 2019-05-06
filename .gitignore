@@ -44,6 +44,12 @@ hs_err_pid*
 
 Thumbs.db
 
+# Local configuration file (sdk path, etc)
+
+local.properties
+
+.properties
+
 #Ignore files built by Visual Studio
 
 *.obj
@@ -97,6 +103,12 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 
 .vs/
+
+project.properties
+
+*.properties
+
+project.properties
 
 #Nuget packages folder
 
