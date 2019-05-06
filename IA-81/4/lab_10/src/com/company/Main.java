@@ -8,17 +8,22 @@ import java.util.TreeSet;
 import static java.util.Comparator.*;
 public class Main {
 
-    public static void method(){
-        MyInterface<Integer> myInterface = (a, b, c, d) ->{
-                                                            System.out.println("a: " + a + " b: " + b + " c: " + c + " d: " + d);
-                                                            //System.out.println("a: " + a + "; " + "b: " + b + "; " + "c: " + c + "; " + "d: " + d + ";");
-                                                            System.out.println(Math.pow(a,b)/Math.sinh(Math.abs(b)) + 4* (Math.log10(c)/ Math.pow(d,(1.0/4))));
-                                                            };
-        myInterface.calculate(1, 1, 1, 1);
+        public static void method(int a, int b, int c, int d, MyInterface myInterface){
+
+        myInterface.calculate(a, b, c, d);
     }
 
+
     public static void main(String[] args) {
-        method();
+          MyInterface<Integer> myInterface = (a, b, c, d) ->{
+            System.out.println("a: " + a + " b: " + b + " c: " + c + " d: " + d);
+            //System.out.println("a: " + a + "; " + "b: " + b + "; " + "c: " + c + "; " + "d: " + d + ";");
+            System.out.println(Math.pow(a,b)/Math.sinh(Math.abs(b)) + 4* (Math.log10(c)/ Math.pow(d,(1.0/4))));
+        };
+        //myInterface.calculate(1, 1, 1, 1);
+
+        method(1, 1, 1, 1, myInterface);
+      
 //        System.out.println("first ex");
 //        List<soundtrack> stracks = getSoundtrack();
 //        stracks.forEach(System.out::println);
