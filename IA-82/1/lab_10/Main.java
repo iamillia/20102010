@@ -23,12 +23,23 @@ public class Main {
         PC asus3=new PC("intelCore2",256);
         PC asus4=new PC("AMD A2",24);
 
-        List<Laptop> laptops=new ArrayList<>();
-        laptops.add(lenovo);
-        laptops.add(lenovo1);
-        laptops.add(lenovo2);
-        laptops.add(lenovo3);
-        laptops.add(lenovo4);
+        List<? super  Device> devices =new ArrayList<>();
+        devices.add(lenovo);
+        devices.add(lenovo1);
+        devices.add(lenovo2);
+        devices.add(lenovo3);
+        devices.add(lenovo4);
+        devices.add(samsung);
+        devices.add(samsung1);
+        devices.add(samsung2);
+        devices.add(samsung3);
+        devices.add(samsung4);
+        devices.add(asus);
+        devices.add(asus1);
+        devices.add(asus2);
+        devices.add(asus3);
+
+
 
         List< Tablet> tablets=new ArrayList<>();
         tablets.add(samsung);
@@ -38,34 +49,36 @@ public class Main {
         tablets.add(samsung4);
 
 
-        List<PC> pcList=new ArrayList<>();
-        pcList.add(asus);
-        pcList.add(asus1);
-        pcList.add(asus2);
-        pcList.add(asus3);
-        pcList.add(asus4);
+
 
         System.out.println("---------------LAPTOPS-----------------------");
-        laptops.forEach(System.out::println);
+        devices.forEach(System.out::println);
         System.out.println("---------------TABLETS-----------------------");
         tablets.forEach(System.out::println);
-        System.out.println("------------------PC--------------------------");
-        pcList.forEach(System.out::println);
         System.out.println("--------------Task2---------------------------");
-        LoveMath LM1 = (a, b, c, d) ->  pow(4 * sinh(sqrt(abs(a / b))) + 3 * asin(c), d);
-        LoveMath LM2 = (a, b, c, d) ->  (6 * pow(sin(abs(2 * a)), log(b)) + sqrt(c * cosh(-d)));
-        LoveMath LM3 = (a, b, c, d) -> (pow(E, a) + 3* log(c)/ sqrt(pow(b, c))* abs(atan(d)));
-
-
-        double res1 = LM1.methodSinh(1.23, -0.34, 0.707, 2.312,LM1);
-        double res2 = LM2.methodAbs(1.478, 9.26, 0.68, 2.24,LM2);
-        double res3= LM3.methodTan(  2.34,0.756, 2.23, -1.653,LM3 );
-
-        System.out.println("All results: "+"\n" +res1+"\n"+ res2+"\n"+res3);
-
-
+        formula();
+        formula1();
+         formula2();
+    }
+    public static void formula (){
+        LoveMath LM1 = (a, b,c,d) ->  pow(4 * sinh(sqrt(abs(a / b))) + 3 * asin(c), d);
+       double res = LM1.calculate(1.478, 9.26, 0.68, 2.24);
+        System.out.println(res);
 
     }
+
+    public static  void  formula1 (){
+         LoveMath LM2 = (a,b,c,d) ->  (6 * pow(sin(abs(2 * a)), log(b)) + sqrt(c * cosh(d)));
+         double res1=LM2.calculate(1.478, 9.26, 0.68, 2.24);
+         System.out.println(res1);
+    }
+    public static  void  formula2 (){
+        LoveMath LM3 = (a,b,c,d) -> (pow(E, a) + 3* log(c)/ sqrt(pow(b, c))* abs(atan(d)));
+       double res2=LM3.calculate(1.478, 9.26, 0.68, 2.24);
+        System.out.println(res2);
+    }
+
+
 }
 
 
