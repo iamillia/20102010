@@ -55,7 +55,10 @@ public class song implements Comparable<song> {
         this.time = time;
         this.name = name;
     }
+    public song(Integer kachestvo) {
+        this.kachestvo = kachestvo;
 
+    }
 
     @Override
     public int compareTo(song o) {
