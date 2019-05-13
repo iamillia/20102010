@@ -7,6 +7,16 @@ public class videoclip extends song {
     boolean video;
     Integer numberOflooking;
     String album;
+
+    public videoclip(Integer kachestvo) {
+        super(kachestvo);
+          }
+
+
+    public boolean isEven() { return numberOflooking % 2 == 0; }
+
+    public static boolean isBiggerThanThree(videoclip videoclip) { return videoclip.getTime() > 3; }
+
     public int getNumberOflooking() {
         return numberOflooking;
     }

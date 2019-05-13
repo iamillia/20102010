@@ -8,53 +8,23 @@ import java.util.TreeSet;
 import static java.util.Comparator.*;
 public class Main {
 
-        public static void method(int a, int b, int c, int d, MyInterface myInterface){
-
-        myInterface.calculate(a, b, c, d);
-    }
-
 
     public static void main(String[] args) {
-          MyInterface<Integer> myInterface = (a, b, c, d) ->{
-            System.out.println("a: " + a + " b: " + b + " c: " + c + " d: " + d);
-            //System.out.println("a: " + a + "; " + "b: " + b + "; " + "c: " + c + "; " + "d: " + d + ";");
-            System.out.println(Math.pow(a,b)/Math.sinh(Math.abs(b)) + 4* (Math.log10(c)/ Math.pow(d,(1.0/4))));
-        };
-        //myInterface.calculate(1, 1, 1, 1);
-
-        method(1, 1, 1, 1, myInterface);
-      
-//        System.out.println("first ex");
-//        List<soundtrack> stracks = getSoundtrack();
-//        stracks.forEach(System.out::println);
-//        System.out.println();
-//        stracks.sort(Comparator.comparing(sound -> Integer.valueOf(sound.getTime())));
-//        stracks.forEach(System.out::println);
-//        System.out.println("second ex");
-//
-//        List<videoclip> vclips = getVideoclip();
-//        vclips.forEach(System.out::println);
-//        System.out.println();
-//        Comparator<videoclip> comparator = comparing(song::getTime);
-//        vclips.sort(comparator.reversed());
-//        vclips.forEach(System.out::println);
-//        System.out.println("third ex");
-//
-//        TreeSet<videoclip> vclips2 = new TreeSet<>(comparing(videoclip::getKachestvo).thenComparing(videoclip::getTime));
-//        vclips2.add(getVideoclip().get(0));
-//        vclips2.add(getVideoclip().get(1));
-//        vclips2.add(getVideoclip().get(2));
-//        vclips2.add(getVideoclip().get(3));
-//        vclips2.add(getVideoclip().get(4));
-//        vclips2.forEach(System.out::println);
-//        System.out.println("firth ex");
-
+    song song1 = new song(1, 1, "besttrack1", "tracker1");
+    song song2 = new song(10, 2, "besttrack2", "tracker2");
+    song song3 = new song(100, 3, "besttrack3", "tracker3");
+    song song4 = new song(1000, 4, "besttrack4", "4");
 
         List<videoclip> vclips3 = getVideoclip();
-//        vclips3.sort(comparing(videoclip::getAlbum,nullsLast(String::compareTo)));
-//        vclips3.forEach(System.out::println);
-
-        vclips3.forEach(System.out::println);
+        vclips3.stream()
+               // .map(Main::apply)
+                .filter(videoclip::isEven)
+                .filter(videoclip::isBiggerThanThree)
+                .forEach(System.out::println);
+        vclips3
+                .stream()
+                .map(check::new)
+                .forEach(System.out::println);
 
     }
 
@@ -73,8 +43,8 @@ public class Main {
 
     private static List<videoclip> getVideoclip(){
         videoclip pobeda1 = new videoclip(19, 5, "Victory Day", "Haritonow", true, 200, "victoria");
-        videoclip pobeda2 = new videoclip(194, 8, "Victory Day", "Haritonow", true, 205, "prima");
-        videoclip pobeda3 = new videoclip(19, 3, "Victory Day", "Haritonow", true, 201, "geroyam");
+        videoclip pobeda2 = new videoclip(194, 8, "Victory Day", "Haritonow", true, 206, "prima");
+        videoclip pobeda3 = new videoclip(19, 3, "Victory Day", "Haritonow", true, 204, "geroyam");
         videoclip pobeda4 = new videoclip(1944, 1, "Victory Day", "Haritonow", true, 202, "slava");
         videoclip pobeda5 = new videoclip(1948, 1, "Victory Day", "Haritonow", true, 203, null);
         List<videoclip> clips = new ArrayList<>();
@@ -87,5 +57,13 @@ public class Main {
 
     }
 
+
+    private static videoclip apply(videoclip track5) {
+        return new videoclip(9, 5, "Victory Day", "Haritonow", true, 200, "victoria");
+    }
+
+    private static videoclip apply2(videoclip s) {
+        return new videoclip(13, 7, "Victory Days", "Haritonow", true, 250, "victoria");
+    }
 
 }
