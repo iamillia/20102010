@@ -1,0 +1,8 @@
+C:\Users\Петя\source\repos\TicketSalling.Data\bin\Debug\netstandard2.0\TicketSalling.Data.deps.json
+C:\Users\Петя\source\repos\TicketSalling.Data\bin\Debug\netstandard2.0\TicketSalling.Data.dll
+C:\Users\Петя\source\repos\TicketSalling.Data\bin\Debug\netstandard2.0\TicketSalling.Data.pdb
+C:\Users\Петя\source\repos\TicketSalling.Data\obj\Debug\netstandard2.0\TicketSalling.Data.fsprojAssemblyReference.cache
+C:\Users\Петя\source\repos\TicketSalling.Data\obj\Debug\netstandard2.0\TicketSalling.Data.AssemblyInfoInputs.cache
+C:\Users\Петя\source\repos\TicketSalling.Data\obj\Debug\netstandard2.0\TicketSalling.Data.AssemblyInfo.fs
+C:\Users\Петя\source\repos\TicketSalling.Data\obj\Debug\netstandard2.0\TicketSalling.Data.dll
+C:\Users\Петя\source\repos\TicketSalling.Data\obj\Debug\netstandard2.0\TicketSalling.Data.pdb

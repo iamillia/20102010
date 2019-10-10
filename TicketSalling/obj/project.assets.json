@@ -1,0 +1,95 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "TicketSalling.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/TicketSalling.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TicketSalling.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TicketSalling.Domain/1.0.0": {
+      "type": "project",
+      "path": "../TicketSalling.Domain/TicketSalling.Domain.csproj",
+      "msbuildProject": "../TicketSalling.Domain/TicketSalling.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.0": [
+      "TicketSalling.Domain >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Петя\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Петя\\source\\repos\\TicketSalling\\TicketSalling.csproj",
+      "projectName": "TicketSalling",
+      "projectPath": "C:\\Users\\Петя\\source\\repos\\TicketSalling\\TicketSalling.csproj",
+      "packagesPath": "C:\\Users\\Петя\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Петя\\source\\repos\\TicketSalling\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Петя\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "projectReferences": {
+            "C:\\Users\\Петя\\source\\repos\\TicketSalling.Domain\\TicketSalling.Domain.csproj": {
+              "projectPath": "C:\\Users\\Петя\\source\\repos\\TicketSalling.Domain\\TicketSalling.Domain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.0": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

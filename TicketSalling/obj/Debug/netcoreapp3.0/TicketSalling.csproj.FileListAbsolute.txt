@@ -1,0 +1,14 @@
+C:\Users\Петя\source\repos\TicketSalling\bin\Debug\netcoreapp3.0\TicketSalling.exe
+C:\Users\Петя\source\repos\TicketSalling\bin\Debug\netcoreapp3.0\TicketSalling.deps.json
+C:\Users\Петя\source\repos\TicketSalling\bin\Debug\netcoreapp3.0\TicketSalling.runtimeconfig.json
+C:\Users\Петя\source\repos\TicketSalling\bin\Debug\netcoreapp3.0\TicketSalling.runtimeconfig.dev.json
+C:\Users\Петя\source\repos\TicketSalling\bin\Debug\netcoreapp3.0\TicketSalling.dll
+C:\Users\Петя\source\repos\TicketSalling\bin\Debug\netcoreapp3.0\TicketSalling.pdb
+C:\Users\Петя\source\repos\TicketSalling\bin\Debug\netcoreapp3.0\TicketSalling.Domain.dll
+C:\Users\Петя\source\repos\TicketSalling\bin\Debug\netcoreapp3.0\TicketSalling.Domain.pdb
+C:\Users\Петя\source\repos\TicketSalling\obj\Debug\netcoreapp3.0\TicketSalling.csprojAssemblyReference.cache
+C:\Users\Петя\source\repos\TicketSalling\obj\Debug\netcoreapp3.0\TicketSalling.AssemblyInfoInputs.cache
+C:\Users\Петя\source\repos\TicketSalling\obj\Debug\netcoreapp3.0\TicketSalling.AssemblyInfo.cs
+C:\Users\Петя\source\repos\TicketSalling\obj\Debug\netcoreapp3.0\TicketSalling.csproj.CopyComplete
+C:\Users\Петя\source\repos\TicketSalling\obj\Debug\netcoreapp3.0\TicketSalling.dll
+C:\Users\Петя\source\repos\TicketSalling\obj\Debug\netcoreapp3.0\TicketSalling.pdb
